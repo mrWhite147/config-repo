@@ -1,0 +1,12 @@
+server:
+  port: 8082
+
+spring:
+  application:
+    name: order-service 
+
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/order_shop
+    username: postgres
+    password: 12345
