@@ -4,14 +4,18 @@ server:
 spring:
   application:
     name: product-service
-
-
-spring:
+  
   datasource:
     url: jdbc:postgresql://localhost:5432/product_shop
     username: postgres
     password: 12345
+    driver-class-name: org.postgresql.Driver
+  
   jpa:
     hibernate:
       ddl-auto: update
-      show-sql: true
+    show-sql: true
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+        format_sql: true
