@@ -1,29 +1,48 @@
 server:
-  port: 8080 
+  port: 9000 
 
 spring:
   application:
     name: api-gateway
   cloud:
     gateway:
+
+      globalcors:
+        cors-configurations:
+          '[/**]': 
+            allowed-origins: "http://localhost:3000" 
+            allowed-methods:
+              - GET
+              - POST
+              - PUT
+              - DELETE
+              - OPTIONS 
+            allowed-headers: "*" 
+            allow-credentials: true 
+            max-age: 3600 
+      # ========================================================================
       discovery:
         locator:
-          enabled: true 
+          enabled: true
+          lower-case-service-id: true 
       routes:
-        - id: product-service
-          uri: lb://PRODUCT-SERVICE
+        - id: product-service-route
+          uri: lb://product-service
           predicates:
-            - Path=/products/**
-        - id: order-service
-          uri: lb://ORDER-SERVICE
-          predicates:
-            - Path=/orders/**
-        - id: user-service
-          uri: lb://USER-SERVICE
-          predicates:
-            - Path=/users/**
+            - Path=/api/products/**
+          filters:
+            - StripPrefix=1 
 
-eureka:
-  client:
-    serviceUrl:
-      defaultZone: http://localhost:8761/eureka/
+        - id: order-service-route
+          uri: lb://order-service
+          predicates:
+            - Path=/api/orders/**
+          filters:
+            - StripPrefix=1
+
+        - id: user-service-route
+          uri: lb://user-service
+          predicates:
+            - Path=/api/users/**
+          filters:
+            - StripPrefix=1
