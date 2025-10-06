@@ -38,3 +38,5 @@ logging:
     org.springframework.http.server.reactive: DEBUG
     org.springframework.web.reactive: DEBUG
     reactor.netty: DEBUG
+jwt:
+  secret: NDczNjdlY2YtMzZiNC00MWQ5LWE0ZmUtMDQ0NzM2Y2FjYjY3LTIwMjQtZGV2LWtleS1mb3ItZGVtby1wcm9qZWN0
