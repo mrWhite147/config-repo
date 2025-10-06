@@ -16,27 +16,20 @@ spring:
           predicates:
             - Path=/api/products/**
           filters:
-            - StripPrefix=1
+            - RewritePath=/api/products(?<segment>/?.*), /products$\{segment}
 
         - id: order-service-route
           uri: lb://order-service
           predicates:
             - Path=/api/orders/**
           filters:
-            - StripPrefix=1
+            - RewritePath=/api/orders(?<segment>/?.*), /orders$\{segment}
 
         - id: user-service-route
           uri: lb://user-service
           predicates:
             - Path=/api/users/**
           filters:
-            - StripPrefix=1
-logging:
-  level:
-    # Включаем самый подробный уровень логирования для компонентов Gateway
-    org.springframework.cloud.gateway: TRACE
-    org.springframework.http.server.reactive: DEBUG
-    org.springframework.web.reactive: DEBUG
-    reactor.netty: DEBUG
+            - RewritePath=/api/users(?<segment>/?.*), /users$\{segment}
 jwt:
   secret: bXktc3VwZXItc2VjdXJlLWFuZC1sb25nLXNlY3JldC1rZXktZm9yLWp3dC1zaWduYXR1cmUtZGRkY2YtMzZiNC00MWQ5LWE0ZmU=
