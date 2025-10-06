@@ -17,6 +17,6 @@ spring:
         format_sql: true
 
 jwt:
-  secret: 1234567890123456789012345678901234567890
+  secret: NDczNjdlY2YtM00MWQ5LMDQ0NzM2Y2FjYMjQtZGV2LWtlItZGVtby
   expiration:
     ms: 86400000 
