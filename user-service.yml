@@ -17,6 +17,6 @@ spring:
         format_sql: true
 
 jwt:
-  secret: NDczNjdlY2YtM00MWQ5LMDQ0NzM2Y2FjYMjQtZGV2LWtlItZGVtby
+  secret: bXktc3VwZXItc2VjdXJlLWFuZC1sb25nLXNlY3JldC1rZXktZm9yLWp3dC1zaWduYXR1cmUtZGRkY2YtMzZiNC00MWQ5LWE0ZmU=
   expiration:
     ms: 86400000 
