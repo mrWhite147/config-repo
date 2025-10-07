@@ -17,7 +17,6 @@ spring:
             - Path=/api/products/**
           filters:
             - RewritePath=/api/products(?<segment>/?.*), /products$\{segment}
-            - name: AuthenticationFilter
 
         - id: order-service-route
           uri: lb://order-service
@@ -25,7 +24,6 @@ spring:
             - Path=/api/orders/**
           filters:
             - RewritePath=/api/orders(?<segment>/?.*), /orders$\{segment}
-            - name: AuthenticationFilter
 
         - id: user-service-route
           uri: lb://user-service
@@ -33,6 +31,5 @@ spring:
             - Path=/api/users/**
           filters:
             - RewritePath=/api/users(?<segment>/?.*), /users$\{segment}
-            - name: AuthenticationFilter
 jwt:
   secret: bXktc3VwZXItc2VjdXJlLWFuZC1sb25nLXNlY3JldC1rZXktZm9yLWp3dC1zaWduYXR1cmUtZGRkY2YtMzZiNC00MWQ5LWE0ZmU=
